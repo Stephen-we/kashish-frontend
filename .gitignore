@@ -1,4 +1,5 @@
 # Logs
+*.Zone.Identifier
 logs
 *.log
 npm-debug.log*
