@@ -36,9 +36,11 @@ const About = () => {
             <em>We believe in building relationships with quality, commitment, and transparency — delivering solutions that are durable, elegant, and maintenance-friendly.</em>
           </p>
 
-          <button className='mt-8 bg-blue-600 hover:bg-blue-700 transition px-8 py-2 rounded text-white shadow-md'>
-            Learn More
-          </button>
+          <a href="#Services">
+            <button className='mt-8 bg-blue-600 hover:bg-blue-700 transition px-8 py-2 rounded text-white shadow-md'>
+            What We Offer
+            </button>
+          </a>
         </div>
       </div>
     </motion.div>
