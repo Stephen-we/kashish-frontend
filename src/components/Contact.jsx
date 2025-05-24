@@ -20,14 +20,18 @@ const Contact = () => {
     };
 
     try {
-//      const res = await fetch('http://localhost:5000/send-email', {
-       fetch("https://ss-railling.onrender.com/send-email", {
+      const res = await fetch("https://ss-railling.onrender.com/send-email", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
 
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+
       const json = await res.json();
+
       if (json.success) {
         toast.success("Message sent successfully!");
         event.target.reset();
@@ -89,7 +93,6 @@ const Contact = () => {
             name="Phone"
             pattern="[0-9]{10}"
             title="Please enter exactly 10 digits"
-            required
           />
         </div>
 
