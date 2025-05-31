@@ -14,33 +14,20 @@ const ProjectGallery = () => {
   ];
 
   return (
-    <div id="Projects" className="py-16 px-4 md:px-12 lg:px-32 bg-gray-50">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-gray-800">
+    <div id="Projects" className="py-16 px-4 md:px-12 lg:px-32 bg-gradient-to-br from-gray-50 to-gray-100">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
         Our Prestige Clients
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {projectImages.map((img, index) => (
           <div
             key={index}
-            className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 group relative"
-            style={{
-              position: 'relative',
-              width: '100%',
-              paddingTop: '100%', // Forces square aspect ratio
-            }}
+            className="overflow-hidden rounded-xl shadow-lg bg-white group relative"
           >
             <img
               src={img}
               alt={`Client ${index + 1}`}
-              className="w-full h-full object-contain object-center transform transition-transform duration-500 group-hover:scale-105"
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                backgroundColor: '#f8f8f8', // Optional: Set background color if there's empty space
-              }}
+              className="w-full h-64 object-contain p-4 transition-transform duration-500 group-hover:scale-105"
             />
           </div>
         ))}

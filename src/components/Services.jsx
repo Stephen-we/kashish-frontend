@@ -27,27 +27,27 @@ const servicesData = [
 
 const Services = () => {
   return (
-    <motion.div
+    <motion.section
+      id="Services"
       initial={{ opacity: 0, y: 100 }}
       transition={{ duration: 1 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="container mx-auto py-16 px-6 md:px-20 lg:px-32"
-      id="Services"
+      className="container mx-auto py-16 px-4 sm:px-10 lg:px-20"
     >
-      <h1 className="text-3xl sm:text-4xl font-bold mb-4 text-center">
-        Our <span className="underline underline-offset-4 decoration-2">Services</span>
-      </h1>
-      <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
+        Our <span className="underline decoration-2 underline-offset-4">Services</span>
+      </h2>
+      <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12">
         We specialize in stainless steel and glass fabrication services tailored to meet residential, commercial, and architectural needs.
       </p>
 
-      {/* Scrollable slider on mobile */}
-      <div className="flex gap-6 overflow-x-auto md:hidden px-1 pb-4 snap-x scroll-smooth">
+      {/* Mobile slider */}
+      <div className="flex gap-6 overflow-x-auto md:hidden snap-x scroll-smooth px-1 pb-4">
         {servicesData.map((service, index) => (
           <div
             key={index}
-            className="min-w-[280px] max-w-[300px] bg-white shadow-lg rounded-xl snap-start transform transition-transform hover:scale-105"
+            className="min-w-[280px] max-w-[300px] bg-white shadow-lg rounded-xl snap-start hover:scale-105 transition-transform"
           >
             <img
               src={service.image}
@@ -62,12 +62,12 @@ const Services = () => {
         ))}
       </div>
 
-      {/* Grid layout for tablets and desktops */}
+      {/* Desktop grid */}
       <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
         {servicesData.map((service, index) => (
           <div
             key={index}
-            className="bg-white shadow-md hover:shadow-xl rounded-xl overflow-hidden transform transition-transform hover:scale-105"
+            className="bg-white shadow-md hover:shadow-xl rounded-xl overflow-hidden transform hover:scale-105 transition-transform"
           >
             <img
               src={service.image}
@@ -81,7 +81,7 @@ const Services = () => {
           </div>
         ))}
       </div>
-    </motion.div>
+    </motion.section>
   );
 };
 

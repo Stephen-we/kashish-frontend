@@ -26,13 +26,9 @@ const Contact = () => {
         body: JSON.stringify(data),
       });
 
-      if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
-      }
-
       const json = await res.json();
 
-      if (json.success) {
+      if (res.ok && json.success) {
         toast.success("Message sent successfully!");
         event.target.reset();
       } else {
@@ -48,17 +44,17 @@ const Contact = () => {
   };
 
   return (
-    <motion.div
+    <motion.section
+      id="Contact"
       initial={{ opacity: 0, y: 100 }}
       transition={{ duration: 1 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="text-center p-6 py-20 lg:px-32 w-full overflow-hidden"
-      id="Contact"
+      className="text-center p-6 py-20 lg:px-32"
     >
-      <h1 className="text-3xl sm:text-5xl font-bold mb-4">
+      <h2 className="text-3xl sm:text-5xl font-bold mb-4">
         Get In <span className="text-blue-600 underline decoration-2">Touch</span>
-      </h1>
+      </h2>
       <p className="text-gray-500 max-w-xl mx-auto mb-12">
         We’d love to hear from you! Whether you have a question or just want to say hi.
       </p>
@@ -68,18 +64,18 @@ const Contact = () => {
           <div>
             <label className="block mb-2 font-semibold">Your Name</label>
             <input
-              className="w-full border border-gray-300 rounded py-3 px-4"
               type="text"
               name="Name"
+              className="w-full border border-gray-300 rounded py-3 px-4"
               required
             />
           </div>
           <div>
             <label className="block mb-2 font-semibold">Your Email</label>
             <input
-              className="w-full border border-gray-300 rounded py-3 px-4"
               type="email"
               name="Email"
+              className="w-full border border-gray-300 rounded py-3 px-4"
               required
             />
           </div>
@@ -88,32 +84,32 @@ const Contact = () => {
         <div className="mt-6">
           <label className="block mb-2 font-semibold">Phone</label>
           <input
-            className="w-full border border-gray-300 rounded py-3 px-4"
             type="tel"
             name="Phone"
             pattern="[0-9]{10}"
             title="Please enter exactly 10 digits"
+            className="w-full border border-gray-300 rounded py-3 px-4"
           />
         </div>
 
         <div className="mt-6">
           <label className="block mb-2 font-semibold">Message</label>
           <textarea
-            className="w-full border border-gray-300 rounded py-3 px-4 h-40 resize-none"
             name="Message"
+            className="w-full border border-gray-300 rounded py-3 px-4 h-40 resize-none"
             required
           ></textarea>
         </div>
 
         <button
-          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded mt-6"
           type="submit"
           disabled={loading}
+          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded mt-6"
         >
           {loading ? 'Sending...' : result || 'Send Message'}
         </button>
       </form>
-    </motion.div>
+    </motion.section>
   );
 };
 
